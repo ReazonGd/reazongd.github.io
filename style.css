@@ -212,6 +212,7 @@ section {
 .project-preview img {
   width: 100%;
 }
+.project-preview a,
 .project-preview p {
   position: absolute;
   bottom: -100%;
@@ -221,6 +222,7 @@ section {
   padding: 5px 0;
   transition: all 300ms;
 }
+.project-preview:hover a,
 .project-preview:hover p {
   bottom: 0;
 }
@@ -228,6 +230,7 @@ section {
 .project-preview i {
   font-size: 2em;
 }
+.project-preview a::before,
 .project-preview p::before {
   content: "";
   width: 10%;
@@ -238,6 +241,7 @@ section {
   left: 0;
   transition: all 200ms;
 }
+.project-preview a::after,
 .project-preview p::after {
   content: "";
   width: 30%;
@@ -248,10 +252,12 @@ section {
   right: 0;
   transition: all 200ms;
 }
+.project-preview a:hover::before,
 .project-preview P:hover::before {
   left: 80%;
   width: 20%;
 }
+.project-preview a:hover::after,
 .project-preview P:hover::after {
   right: 85%;
 }
