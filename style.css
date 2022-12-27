@@ -67,7 +67,7 @@ nav.container {
   font-weight: 700;
 }
 .hero .profil {
-  background: url("./bgprtAnm.jpg") center no-repeat;
+  background: url("./src/bgprtAnm.jpg") center no-repeat;
   background-size: cover;
   height: 10rem;
   width: 10rem;
