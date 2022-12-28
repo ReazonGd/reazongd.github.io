@@ -119,7 +119,7 @@
           mode: 'no-cors',
           body: new FormData(document.getElementById("contact-form")),
         })
-          // .then((response) => response.json())
+          .then((response) => response.html())
           .then(() => {
             document.getElementById("form-info").innerHTML = "Success! ヾ(•ω•`)o";
             document.getElementById("form-info").style.opacity = 1;
