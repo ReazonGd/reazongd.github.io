@@ -116,6 +116,7 @@
         if (formDone) return;
         fetch("https://comet-cuddly-tire.glitch.me/add", {
           method: "POST",
+          mode: 'no-cors',
           body: new FormData(document.getElementById("contact-form")),
         })
           // .then((response) => response.json())
