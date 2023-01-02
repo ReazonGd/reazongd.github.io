@@ -61,7 +61,7 @@
     <section id="contact" data-aos="fade-up">
       <div class="container">
         <span class="title">Contact me</span>
-        <form method="post" id="contact-form">
+        <form method="post" id="contact-form" action="https://comet-cuddly-tire.glitch.me/add">
           <span class="info" id="form-info">SENDED</span>
           <div class="groub">
             <input type="text" name="name" placeholder="Name" minlength="5" s required />
@@ -109,27 +109,27 @@
       AOS.init();
       document.getElementById("form-info").style.opacity = 0;
 
-      let formDone = false;
-      var form = document.getElementById("contact-form");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (formDone) return;
-        fetch("https://comet-cuddly-tire.glitch.me/add", {
-          method: "POST",
-          mode: 'no-cors',
-          body: new FormData(document.getElementById("contact-form")),
-        })
-          .then((response) => response.html())
-          .then(() => {
-            document.getElementById("form-info").innerHTML = "Success! ヾ(•ω•`)o";
-            document.getElementById("form-info").style.opacity = 1;
-            formDone = true;
-          })
-          .catch((e) => {
-            document.getElementById("form-info").innerHTML = "Error. /_ \\";
-            document.getElementById("form-info").style.opacity = 1;
-          });
-      });
+//       let formDone = false;
+//       var form = document.getElementById("contact-form");
+//       form.addEventListener("submit", (e) => {
+//         e.preventDefault();
+//         if (formDone) return;
+//         fetch("https://comet-cuddly-tire.glitch.me/add", {
+//           method: "POST",
+//           mode: 'no-cors',
+//           body: new FormData(document.getElementById("contact-form")),
+//         })
+//           .then((response) => response.html())
+//           .then(() => {
+//             document.getElementById("form-info").innerHTML = "Success! ヾ(•ω•`)o";
+//             document.getElementById("form-info").style.opacity = 1;
+//             formDone = true;
+//           })
+//           .catch((e) => {
+//             document.getElementById("form-info").innerHTML = "Error. /_ \\";
+//             document.getElementById("form-info").style.opacity = 1;
+//           });
+//       });
     </script>
   </body>
 </html>
