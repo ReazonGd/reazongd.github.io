@@ -1,4 +1,12 @@
 let dataMusic = [
+{
+    name: "Cerita Malam",
+    artist: "KARNAMEREKA",
+    link: "https://cdn.discordapp.com/attachments/788614441603170314/1065829038985334784/Cerita_Malam_128_kbps.mp3",
+    poster: `https://img.youtube.com/vi/aaFUjDAgd-k/0.jpg`,
+    album: `unknow`,
+    isPlay: false,
+  }, 
   {
     name: "Cold Water",
     artist: "Justin Bieber",
