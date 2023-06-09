@@ -14,8 +14,9 @@ function alertMessage(message) {
 
   // displaying message
   waitingQueue = true;
-  document.getElementById("alt").style.right = 0;
-  document.getElementById("altmsg").innerHTML = msgQueue[0];
+  docId("alt").style.opacity = "100%";
+  docId("alt").style.display = "flex";
+  docId("altmsg").innerHTML = msgQueue[0];
 
   if (msgQueue.length >= 5) tImeWaiting = 1000;
   else tImeWaiting = 2000;
@@ -23,7 +24,7 @@ function alertMessage(message) {
   setTimeout(() => {
     console.log(`Deleting Message... [${msgQueue[0]}]`);
 
-    document.getElementById("alt").style.right = "-1000px";
+    docId("alt").style.opacity = "0%";
 
     msgQueue = msgQueue.filter((val, index) => index !== 0); /* queueMsg; */
     if (msgQueue.length == 1) msgQueue = [];
@@ -31,6 +32,7 @@ function alertMessage(message) {
 
     // next
     if (msgQueue[0]) alertMessage();
+    else docId("alt").style.display = "none";
   }, tImeWaiting);
 }
 
@@ -50,11 +52,11 @@ let Ptemplate = {
 };
 const nPromt = {
   songOption: (index) => {
-    let pornDiv = document.getElementById("promt");
-    let bg2 = document.getElementById("bg-2");
+    let pornDiv = docId("promt");
+    let bg2 = docId("bg-2");
 
     let result = `
-    <div id="promtHeader" class="d-flex justify-content-center mt-1">${queue[index].name}</div>
+    <div id="promtHeader" class="d-flex justify-content-center mt-1 p-small">${queue[index].name}</div>
     <div id="promtContent" class="w-full border-x p-1">
     <p class="cursor-pointer my-1" onclick="openSelection.songInfo(${index})">info lagu</p>
     <p class="cursor-pointer my-1" onclick="">Edit Lagu</p>
@@ -64,7 +66,7 @@ const nPromt = {
     `;
     if (author.inPlaylist == 0) {
       result = `
-      <div id="promtHeader" class="d-flex justify-content-center mt-1">${queue[index].name}</div>
+      <div id="promtHeader" class="d-flex justify-content-center mt-1 p-small">${queue[index].name}</div>
       <div id="promtContent" class="w-full border-x p-1">
       <p class="cursor-pointer my-1" onclick="openSelection.songInfo(${index})">info lagu</p>
       <p class="cursor-pointer my-1" onclick="openSelection.addSong(${index})">Edit Lagu</p>
