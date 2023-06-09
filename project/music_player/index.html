@@ -10,15 +10,41 @@
   </head>
   <body onload="loadPlaylist()" dark>
     <div class="notSuportDisplay bg-1">Sorry Your device not sopported</div>
-    <div id="navButton">
-      <span class="btn fixed-t" onclick="loadPlaylist(); document.getElementById('listAndOp').style.display='grid'"></span>
+    <div id="loading" class="bg-1 d-grid fixed-t center w-full h-full align-content-between" style="z-index: 200">
+      <div></div>
+      <div class="d-grid justify-items-center p-1 border-top shadow-sm">
+        <p class="fz-lgr">WELCOME</p>
+        <p class="text-muted small">v 1.72 Beta</p>
+      </div>
+      <!-- <p class="small mr-sm mt-4">Follow me!</p> -->
+      <div class="d-grid justify-items-center">
+        <p class="small border-bottom p-small">FOLLOW ME :</p>
+        <div class="d-flex align-items-center mb-4">
+          <a href="https://github.com/ReazonGd" style="font-family: monospace">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-github mr-sm" viewBox="0 0 16 16">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              />
+            </svg>
+          </a>
+          <a href="https://twitter.com/ChReazon" style="font-family: monospace">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
+
     <div id="listAndOp" class="bg-1" style="display: grid; width: 100%">
+      <!-- navbar -->
       <div class="navS bg-1 border-bottom align-items-center p-small">
         <p class="text-p">ReazonMusic</p>
         <div class="d-flex align-items-center">
           <div id="scbar" class="">
-            <input id="searchin" class="input" type="text" placeholder="Cari" aria-label="Search" oninput="loadPlaylist()" />
+            <input id="search-input" class="input" type="text" placeholder="Cari" aria-label="Search" oninput="loadPlaylist()" />
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#a23fff" class="cursor-pointer ml-1" viewBox="0 0 16 16" onclick="openSelection.playList()">
             <title>play list</title>
@@ -29,108 +55,127 @@
           </svg>
         </div>
       </div>
-      <div id="selection1" class="bg-1"></div>
+      <!-- end of navbar -->
+
+      <!-- selection -->
+      <div id="selection-parent" class="bg-1"></div>
+
       <div id="main" class="d-flex">
-        <div id="MusicList" class="music-content mb-4 overflow-hidden w-full"><p class="d-flex align-items-center">Wait....</p></div>
+        <!-- music list -->
+        <div id="MusicList" class="music-content mb-4 overflow-hidden w-full"></div>
+
+        <!-- control display -->
         <div id="musicDisplay" class="musicDisplay bg-1">
-          <div class="fixed-t cursor-pointer l-0 fz-lg ml-1 mt-1 navMusic" onclick="document.getElementById('musicDisplay').style.display = 'none';">
+          <div id="close-display" class="l-0 fz-lg ml-1 mt-1 navMusic" onclick="docIdStyle('musicDisplay').bottom = '-100vh';">
             <svg xmlns="http://ww,w3.org/2000/svg" width="15" height="15" fill="currentColor" class="" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
             </svg>
           </div>
-          <div class="h-15 w-15 bg-second br-sm mb-4 bg-sz-cover" style="background-image: url('https://i.pinimg.com/474x/64/83/77/648377280142b25063dfb7ff880936c3.jpg')">
-            <div class="bg-sz-cover h-15 w-15 br-sm" id="covermusic"></div>
-          </div>
-          <div>
-            <div class="titleBox">
-              <h1 id="namemusic" class="" style="margin: 0">
-                Cold Water
-                <div id="con"></div>
-              </h1>
-              <div class="d-flex">
-                <p id="artistmusic" class="smal text-muted">Justin Bieber</p>
-                <p class="smal px-small text-muted">|</p>
-                <p id="albummusic" class="smal text-muted">album</p>
-              </div>
-            </div>
-          </div>
 
-          <!-- display music -->
-          <div class="control x-center">
-            <div id="time" class="time d-flex">
-              <p id="ctime" class="text-dark text-time">00:00</p>
-              <div class="" style="width: 100%">
-                <!-- <label for="customRange2" class="form-label">Example range</label> -->
-                <input id="rgtime" type="range" class="bg-gray" id="customRange1" min="0" max="100" value="0" style="width: 100%" oninput="music.changeTime(document.getElementById('rgtime').value)" />
-                <!-- <div id="ptime" class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div> -->
-              </div>
-              <p id="dtime" class="text-dark text-time">00:00</p>
+          <div class="d-grid justify-items-center align-content-center" style="margin-bottom: 10vh">
+            <!-- Cover -->
+            <div class="h-15 w-15 bg-second br-sm mb-4 bg-sz-cover" style="background-image: url('https://i.pinimg.com/474x/64/83/77/648377280142b25063dfb7ff880936c3.jpg')">
+              <div class="bg-sz-cover h-15 w-15 br-sm" id="covermusic"></div>
             </div>
-            <div id="buttonControl" class="d-flex">
-              <div class="btn text-muted" onclick="music.prev()">
-                <title>Prev</title>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-skip-start text-muted hover-color-purple" viewBox="0 0 16 16">
-                  <path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L5 8.752V12a.5.5 0 0 1-1 0V4zm7.5.633L5.696 8l5.804 3.367V4.633z" />
-                </svg>
+
+            <!-- Title, artist, album -->
+            <div>
+              <div class="titleBox">
+                <h1 id="namemusic" class="" style="margin: 0">
+                  Cold Water
+                  <div id="con"></div>
+                </h1>
+                <div class="d-flex">
+                  <p id="artistmusic" class="smal text-muted">Justin Bieber</p>
+                  <p class="smal px-small text-muted">|</p>
+                  <p id="albummusic" class="smal text-muted">album</p>
+                </div>
               </div>
-              <div class="btn text-muted mx-4" id="btnplay" onclick="music.main()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play text-muted hover-color-purple" viewBox="0 0 16 16">
-                  <title>Play</title>
-                  <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
-                </svg>
+            </div>
+
+            <!-- controler music -->
+            <div class="control x-center">
+              <!-- Time -->
+              <div id="time" class="time d-flex">
+                <p id="ctime" class="text-dark text-time">00:00</p>
+                <div class="" style="width: 100%">
+                  <!-- <label for="customRange2" class="form-label">Example range</label> -->
+                  <input id="rgtime" type="range" class="bg-gray" id="customRange1" min="0" max="1000" value="0" style="width: 100%" oninput="music.changeTime(docId('rgtime').value)" />
+                  <!-- <div id="ptime" class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div> -->
+                </div>
+                <p id="dtime" class="text-dark text-time">00:00</p>
               </div>
 
-              <div class="btn text-muted" onclick="music.next()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-skip-end text-muted hover-color-purple" viewBox="0 0 16 16">
-                  <title>Skip</title>
-                  <path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.713 3.31 4 3.655 4 4.308v7.384c0 .653.713.998 1.233.696L11.5 8.752V12a.5.5 0 0 0 1 0V4zM5 4.633 10.804 8 5 11.367V4.633z" />
-                </svg>
+              <!-- Button Control -->
+              <div id="buttonControl" class="d-flex">
+                <div class="btn text-muted" onclick="music.prev()">
+                  <title>Prev</title>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-skip-start text-muted hover-color-purple" viewBox="0 0 16 16">
+                    <path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L5 8.752V12a.5.5 0 0 1-1 0V4zm7.5.633L5.696 8l5.804 3.367V4.633z" />
+                  </svg>
+                </div>
+                <div class="btn text-muted mx-4" id="btnplay" onclick="music.main()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play text-muted hover-color-purple" viewBox="0 0 16 16">
+                    <title>Play</title>
+                    <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                  </svg>
+                </div>
+
+                <div class="btn text-muted" onclick="music.next()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-skip-end text-muted hover-color-purple" viewBox="0 0 16 16">
+                    <title>Skip</title>
+                    <path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.713 3.31 4 3.655 4 4.308v7.384c0 .653.713.998 1.233.696L11.5 8.752V12a.5.5 0 0 0 1 0V4zM5 4.633 10.804 8 5 11.367V4.633z" />
+                  </svg>
+                </div>
               </div>
-            </div>
-            <div id="otherButton" class="d-flex justify-content-between border-top mt-1">
-              <p id="volume" class="btn cursor-pointer" onclick="music.mute()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-volume-up-fill text-muted hover-color-purple" viewBox="0 0 16 16">
-                  <title>mute</title>
-                  <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z" />
-                  <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z" />
-                  <path
-                    d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"
-                  />
-                </svg>
-              </p>
-              <p class="btn cursor-pointer" onclick="music.like()">
-                <svg id="likeBtn" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-heart text-muted hover-color-purple" viewBox="0 0 16 16" id="love">
-                  <title>Tambahkan keSuka</title>
-                  <path
-                    d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                  ></path>
-                </svg>
-              </p>
-              <p id="infoBtn" class="btn cursor-pointer" onclick="openSelection.songInfo(author.inSong)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-info-circle text-muted hover-color-purple" viewBox="0 0 16 16" id="info-circle">
-                  <title>info</title>
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-                  <path
-                    d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                  ></path>
-                </svg>
-              </p>
-              <p id="repeat" class="btn cursor-pointer" onclick="music.repeat()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-arrow-repeat text-muted hover-color-purple" viewBox="0 0 16 16">
-                  <title>ulanngi</title>
-                  <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
-                  />
-                </svg>
-              </p>
+
+              <!-- Other Button -->
+              <div id="otherButton" class="d-flex justify-content-between border-top mt-1">
+                <p id="volume" class="btn cursor-pointer" onclick="music.mute()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-volume-up-fill text-muted hover-color-purple" viewBox="0 0 16 16">
+                    <title>mute</title>
+                    <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z" />
+                    <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z" />
+                    <path
+                      d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"
+                    />
+                  </svg>
+                </p>
+                <p class="btn cursor-pointer" onclick="music.like()">
+                  <svg id="likeBtn" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-heart text-muted hover-color-purple" viewBox="0 0 16 16" id="love">
+                    <title>Tambahkan keSuka</title>
+                    <path
+                      d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
+                    ></path>
+                  </svg>
+                </p>
+                <p id="infoBtn" class="btn cursor-pointer" onclick="openSelection.songInfo(author.inSong)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-info-circle text-muted hover-color-purple" viewBox="0 0 16 16" id="info-circle">
+                    <title>info</title>
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                    <path
+                      d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                    ></path>
+                  </svg>
+                </p>
+                <p id="repeat" class="btn cursor-pointer" onclick="music.repeat()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-arrow-repeat text-muted hover-color-purple" viewBox="0 0 16 16">
+                    <title>ulanngi</title>
+                    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
+                    />
+                  </svg>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Buttom control -->
     <div class="bg-1 w-full fixed-b d-flex border-top boder-3 justify-content-around subControl" style="height: 50px">
       <div class="btn text-muted ml-5 mb-3" onclick="music.prev()">
         <title>Prev</title>
@@ -139,9 +184,9 @@
         </svg>
       </div>
 
-      <div onclick="document.getElementById('musicDisplay').style.display = 'grid';">
+      <div onclick="docIdStyle('musicDisplay').bottom = '0'">
         <div class="h-4 w-4 circle cursor-pointer border-2 bg-sz-cover spin-full" style="margin-top: -1.72rem; background-image: url('https://i.pinimg.com/474x/64/83/77/648377280142b25063dfb7ff880936c3.jpg')">
-          <div class="bg-sz-cover h-4 w-4 bg-second circle" id="rollmusic"></div>
+          <div class="bg-sz-cover h-4 w-4 circle" id="rollmusic"></div>
         </div>
       </div>
 
@@ -153,32 +198,24 @@
       </div>
     </div>
 
-    <div id="alt" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex align-items-center">
-        <svg width="20" height="20" fill="#8400ff" viewBox="0 0 16 16">
-          <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"></path>
-        </svg>
-        <div id="altmsg" class="toast-body">Dinda is not responded!</div>
+    <!-- Alert Template -->
+    <div id="alt" class="d-flex fixed-b w-full center" style="opacity: 0%; transition: all 0.5s; z-index: 100; bottom: 6rem">
+      <div class="p-xsmall bg-1 shadow-sm br-1">
+        <div class="d-flex align-items-center">
+          <svg width="20" height="20" fill="#fff" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"></path>
+          </svg>
+          <div id="altmsg" class="toast-body">Dinda is not responded!</div>
+        </div>
       </div>
     </div>
 
-    <!-- Alert -->
-    <div id="bg-2" class="w-full h-full fixed-t x-center bg-2 l-0 d-none" style="z-index: 90" onclick=" document.getElementById('promt').style.display='none'; document.getElementById('bg-2').style.display='none'"></div>
-    <div id="promt" class="promt w-full fixed-b bg-1 l-0 fz-lg d-none" style="z-index: 90">
-      <div id="promtHeader" class="d-flex justify-content-center mt-1">Option</div>
-      <div id="promtContent" class="w-full border-x p-1">
-        <p class="cursor-pointer">Pilihan</p>
-        <p class="cursor-pointer">Pilihan</p>
-        <p class="cursor-pointer">Pilihan</p>
-      </div>
-      <div id="promtbutton" class="d-flex justify-content-around w-full mb-3">
-        <button class="btn btn-outline-p fz-lgr">Batal</button>
-        <button class="btn btn-outline-p fz-lgr">Oke</button>
-      </div>
-    </div>
+    <!-- Comming soon -->
+    <div id="bg-2" class="w-full h-full fixed-t x-center l-0 d-none" style="z-index: 90; background-color: #000; opacity: 50%" onclick=" docId('promt').style.display='none'; docId('bg-2').style.display='none'"></div>
+    <div id="promt" class="promt w-full fixed-b bg-1 l-0 fz-lg d-none" style="z-index: 90"></div>
 
-    <!--  -->
+    <!-- All Script -->
     <script src="lib2/data.js"></script>
     <script src="lib2/alertmessage.js"></script>
     <script src="lib2/control.js"></script>
