@@ -4,6 +4,9 @@ audio.addEventListener("ended", () => {
   else music.next();
 });
 
+// audio.addEventListener("pause", (docId("btnplay").innerHTML = htmlTemplate.btnPlay));
+// audio.addEventListener("playing", (docId("btnplay").innerHTML = htmlTemplate.btnPause));
+
 audio.addEventListener("error", (err) => {
   console.log("error Detected!", err);
   alertMessage(`Error when playing ${queue[author.inSong].name} try to playing next `);
@@ -15,6 +18,8 @@ let dtimenow = 0;
 setInterval(() => {
   if (audio.currentSrc && !audio.played) return;
 
+  let musicDuration = audio.duration;
+  if (loading && author.inSong == author.lastSong) musicDuration = author.lasCurrent;
   let allCurrentTime = timeConverter(audio.currentTime);
   if (audio.paused || !audio.currentSrc) allCurrentTime = timeConverter(author.lasCurrent);
 
@@ -22,16 +27,16 @@ setInterval(() => {
 
   if (dtimenow !== allDurationTime) {
     dtimenow = allDurationTime;
-    document.getElementById("dtime").innerHTML = `${allDurationTime.minute}:${allDurationTime.second}`;
+    docId("dtime").innerHTML = `${allDurationTime.minute}:${allDurationTime.second}`;
   }
-  document.getElementById("ctime").innerHTML = `${allCurrentTime.minute}:${allCurrentTime.second}`;
+  docId("ctime").innerHTML = `${allCurrentTime.minute}:${allCurrentTime.second}`;
 
   const currentTime = allCurrentTime.amount;
   let duration = allDurationTime.amount;
   if (isNaN(duration) || duration == 0) duration = 1000;
 
-  document.getElementById("rgtime").style.backgroundSize = (currentTime / duration) * 100 + 1 + "% 100%";
-  document.getElementById("rgtime").value = (currentTime / duration) * 100;
+  docId("rgtime").style.backgroundSize = (currentTime / duration) * 100 + 1 + "% 100%";
+  docId("rgtime").value = (currentTime / duration) * 1000;
 
   if (window.navigator.onLine) {
     if (!author.offline) return;
