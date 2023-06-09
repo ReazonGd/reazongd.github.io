@@ -1,18 +1,20 @@
 function loadDisplay(i) {
-  if (!audio.paused) document.getElementById("btnplay").innerHTML = htmlTemplate.btnPause;
+  if (!audio.paused) docId("btnplay").innerHTML = htmlTemplate.btnPause;
   document.title = `${queue[author.inSong].name} | ${queue[author.inSong].artist}`;
-  document.getElementById("namemusic").innerHTML = queue[author.inSong].name;
-  document.getElementById("artistmusic").innerHTML = queue[author.inSong].artist;
-  document.getElementById("albummusic").innerHTML = queue[author.inSong].album;
-  document.getElementById(`covermusic`).style = `background-image: url('${queue[i].poster}');`;
-  document.getElementById(`rollmusic`).style = `background-image: url('${queue[i].poster}');`;
+  docId("namemusic").innerHTML = queue[author.inSong].name;
+  docId("artistmusic").innerHTML = queue[author.inSong].artist;
+  docId("albummusic").innerHTML = queue[author.inSong].album;
+  docId(`covermusic`).style = `background-image: url('${queue[i].poster === null ? "" : queue[i].poster}');`;
+  docId(`rollmusic`).style = `background-image: url('${queue[i].poster === null ? "" : queue[i].poster}');`;
+  docId("likeBtn").innerHTML = playList[1].song.includes(queue[author.inSong].name) === true ? htmlTemplate.liked : htmlTemplate.like;
+  docId("btnplay").innerHTML = audio.paused === false ? htmlTemplate.btnPause : htmlTemplate.btnPlay;
   loadPlaylist();
 }
 loadDisplay(0);
 function swichMode() {
   let mode = author.darkmode;
   let domBody = document.body;
-  let modeButton = document.getElementById("setting-darkmode");
+  let modeButton = docId("setting-darkmode");
   if (mode) {
     domBody.removeAttribute("dark");
     author.darkmode = false;
@@ -23,3 +25,5 @@ function swichMode() {
   author.darkmode = true;
   modeButton.innerHTML = htmlTemplate.darkmode;
 }
+
+window.addEventListener("loadeddata", console.log("done"));
