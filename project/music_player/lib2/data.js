@@ -1,17 +1,9 @@
 let dataMusic = [
-{
-    name: "Cerita Malam",
-    artist: "KARNAMEREKA",
-    link: "https://cdn.discordapp.com/attachments/788614441603170314/1065829038985334784/Cerita_Malam_128_kbps.mp3",
-    poster: `https://img.youtube.com/vi/aaFUjDAgd-k/0.jpg`,
-    album: `unknow`,
-    isPlay: false,
-  }, 
   {
     name: "Cold Water",
     artist: "Justin Bieber",
     link: "https://dl.dropbox.com/s/r8neonq04xryfeh/Cold%20Water_Major%20Lazer%2CJustin%20Bieber_Friendship%20Day.xoht?dl=0",
-    poster: `http://static.idolator.com/uploads/2016/07/major-lazer-justin-bieber-cold-water.jpg`,
+    poster: null,
     album: `unknow`,
     isPlay: false,
   },
@@ -102,7 +94,7 @@ let dataMusic = [
     name: "Long Drives",
     artist: "BoyWithUke_",
     link: "https://cdn.discordapp.com/attachments/788614441603170314/951635410721841252/BoyWithUke_-_Long_Drives_Official_getmp3.pro.mp3",
-    poster: `https://toxicloaded.com/wp-content/uploads/2022/02/LONG-DRIVE.jpeg`,
+    poster: null,
     album: `unknow`,
     isPlay: false,
   },
@@ -110,7 +102,7 @@ let dataMusic = [
     name: "To Be Human",
     artist: "marina",
     link: "https://cdn.discordapp.com/attachments/788614441603170314/971261988988661770/Nightcore_-_To_Be_Human_lyrics_getmp3.pro.mp3",
-    poster: `https://i.ytimg.com/vi/XDDNV3SVFhQ/hqdefault.jpg`,
+    poster: null,
     album: `unknow`,
     isPlay: false,
   },
@@ -268,7 +260,7 @@ let htmlTemplate = {
   },
   musicListContent: (i) => {
     return `
-    <div class="d-flex text-muted pt-3 cursor-pointer">
+    <div class="d-flex text-muted pt-3  ">
       <div id="mslt" class="d-flex text-muted pt-3 justify-content-between lh-sm w-full">
         <div class="d-flex w-full" onclick="music.swich(${i})">
           <div class="w-2 h-2 br-sm bg-second mr-sm bg-sz-cover" style="background-image: url('https://i.pinimg.com/474x/64/83/77/648377280142b25063dfb7ff880936c3.jpg');">
@@ -284,74 +276,19 @@ let htmlTemplate = {
     </div>`;
   },
   inplch: (i) => {
-    return `<div class="d-flex align-items-center mb-1 w-full cursor-pointer ">
-      <label style="width: 100%" for="Check${i}"> ${dataMusic[i].name} </label>
-      <div id="buttonSelectSong${i}"></div>
-    </div>`;
+    return `<div class="d-flex align-items-center mb-1 w-full">
+             <label style="width: 100%" for="Check${i}"> ${dataMusic[i].name} </label>
+             <div id="buttonSelectSong${i}">
+             ${
+               author.onedit.includes(dataMusic[i].name) === true
+                 ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x al-loaded" viewBox="0 0 16 16" onclick="author.onedit = author.onedit.filter(name => name !== dataMusic[${i}].name)"> <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /></svg>`
+                 : `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus al-loaded" viewBox="0 0 16 16" onclick="author.onedit.push(dataMusic[${i}].name)"> <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" /> </svg>`
+             }
+             
+             </div>
+            </div>`;
   },
-  editpl: (i) => {
-    return `
-  <div class="selection1 bg-1 mb-0">
-    <div class="align-items-center bg-1 shadow-sm text-p m-1 h-2">Edit (${playList[i].name})</div>
-    <div id="selection1-content " class="selection1-content form-check">
-      <!-- op1 -->
-      <div class="d-flex align-items-center mb-1 w-full cursor-pointer" onclick="document.getElementById('editPlaylistName').style.display = 'flex';">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil mr-1" viewBox="0 0 16 16" id="pencil"><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path></svg>
-        <label class="cursor-pointer" for="Check0"> Ubah nama</label>
-      </div>
-  
-      <!-- input1 -->
-      <div id="editPlaylistName" class="input-group mb-3 align-items-center gap-1 p-2" style="display: none">
-        <input id="changeTitle" class="input-purple" placeholder="Nama" value="${playList[i].name}" />
-        <span class="btn btn-outline-p btn-border-1 " id="basic-addon2" onclick="playlistEdit.changeName(${i}); playlistEdit.open()">Done</span>
-      </div>
-  
-      <!-- op2 -->
-      <div class="d-flex align-items-center mb-1 w-full cursor-pointer " onclick="document.getElementById('edplt').style.display = 'block';openSelection.selectSong.new('selectPlaylistSong',${i})">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files mr-1" viewBox="0 0 16 16" id="pencil"><path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"></path></svg>
-        <label class="cursor-pointer" for="Check0"> Edit Playlist </label>
-      </div>
-  
-      <!-- input2 -->
-      <div id="edplt" class="selection1-content overflow" style="display: none; max-height: 200px">
-        <div id="selectPlaylistSong" onclick="openSelection.selectSong.new('selectPlaylistSong',${i})"></div>
-  
-        <!-- button1 -->
-        <div class="d-flex m-3 stiky-bottom r-0 bg-1" >
-          <button type="button" class="btn btn-outline-p mr-1" onclick="document.getElementById('edplt').style.display = 'none';openSelection.selectSong.cancel('selectPlaylistSong')">CANCEL</button>
-          <button type="button" class="btn btn-outline-p" onclick="document.getElementById('edplt').style.display = 'none';openSelection.selectSong.ok();">OK</button>
-        </div>
-      </div>
-  
-      <!-- op3 -->
-      <div class="d-flex align-items-center mb-1 w-full cursor-pointer h-2 border-bottom" onclick="playList = playList.filter(data => data.name !== playList[${i}].name); playlistEdit.changePlaylist(0);openSelection.playList()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill mr-1" viewBox="0 0 16 16" id="trash-fill"><path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5zM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11zm1.958 1l-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47zM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5z"></path></svg>  
-        <label class="cursor-pointer"> Delete </label>
-      </div>
-  
-      <!-- modal 
-      <div class="modal fade" id="Modal${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Delete this playList?</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>You will never see this playlist again</p>
-              <button type="button" class="btn btn-info"  data-bs-dismiss="modal">No</button>
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="playList = playList.filter(dt => dt.name !== '${playList[i].name}'); document.getElementById('selection1').style.display = 'none';playlistEdit.changePlaylist(0) ; alertMessage('Menghapus ${playList[i].name}')"> Yes </button>
-            </div>
-          </div>
-        </div>
-      </div -->
-    </div>
-    <div class="d-flex pl2btn">
-      <button type="button" class="btn btn-outline-p" onclick="document.getElementById('selection1').innerHTML = '';">Close</button>
-    </div>
-  </div>
-  `;
-  },
+
   PlaylistDisplay: (i) => {
     return `<div class="d-flex align-items-center mb-1 w-full cursor-pointer" onclick="playlistEdit.changePlaylist(${i})">
               <div class="d-flex w-full">
@@ -359,7 +296,7 @@ let htmlTemplate = {
                 <label class="cursor-pointer"> ${playList[i].name} </label>
               </div>
               <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" onclick="playlistEdit.open(${i}); ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-pencil-square ${playList[i].song.length <= 2 ? `text-muted"` : `" onclick="playlistEdit.open(${i}); `}">
                   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                 </svg>
@@ -420,4 +357,11 @@ let author = {
   editMode: false,
   darkmode: true,
   playingMode: 1, // 1 : playing all song, 2 : repeat, 3 : acak
+};
+
+const docId = (id) => {
+  return document.getElementById(id);
+};
+const docIdStyle = (id) => {
+  return document.getElementById(id).style;
 };
