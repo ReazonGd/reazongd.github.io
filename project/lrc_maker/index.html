@@ -284,6 +284,11 @@
 
       const table = document.querySelector(".lrc_table_body");
 
+      const iterval = setInterval(function () {
+        if (!(lyrics.length && lyrics.length > 0 && audioPlayer.src && !audioPlayer.paused)) return;
+        updateTable();
+      }, 200);
+
       // drag n drop and file select feature
       dragZone.addEventListener("dragover", function (event) {
         event.preventDefault();
