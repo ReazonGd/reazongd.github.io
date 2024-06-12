@@ -6,6 +6,9 @@
     <title>lrc maker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="description" content="Sebuah pembuat file .lrc sederhana" />
+    <meta name="keywords" content="lrc, lrc maker, lyrics, lyrics maker, lirik, buat lirik" />
+    <meta name="author" content="Reazon" />
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
     <style>
       * {
@@ -283,8 +286,7 @@
       const saveButton = document.querySelector("#save");
 
       const table = document.querySelector(".lrc_table_body");
-
-      const iterval = setInterval(function () {
+      const interval = setInterval(function () {
         if (!(lyrics.length && lyrics.length > 0 && audioPlayer.src && !audioPlayer.paused)) return;
         updateTable();
       }, 200);
@@ -349,10 +351,10 @@
         audioPlayer.onloadeddata = function () {
           gotoPage(1);
           document.querySelectorAll(`.lrc-name`).forEach(function (v) {
-            v.innerHTML = file.name.split(".")[0];
+            v.innerHTML = file.name;
           });
 
-          file_name = file.name;
+          file_name = file.name.split(".")[0];
 
           document.querySelector(".endTime").innerHTML = timeFormat(audioPlayer.duration);
           timeRange.max = audioPlayer.duration;
@@ -533,6 +535,7 @@
         if (album) arr_str.push(`[al:${album}]`);
         if (author) arr_str.push(`[au:${author}]`);
         if (userName) arr_str.push(`[by:${userName}]`);
+        arr_str.push(`[length:${timeFormat(audioPlayer.duration, true)}]`);
         arr_str.push(`[tool: .LRC MAKER by reazon ${window.location.href}]`);
         arr_str.push(`[ve: 1.0]`);
 
