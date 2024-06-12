@@ -1,4 +1,7 @@
 # Project Folder
 
-Disini kalian dapan membuaka project yang telah saya buat 
+list
+- lrc maker
+
+- music player (forget it. i even dont know what it is anymore.)
 
