@@ -1,134 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="asset/style.css" />
+    <title>Reazon Github</title>
   </head>
-  <body data-aos-delay="100">
-    <!-- Navigation -->
-    <section id="nav">
-      <nav class="container">
-        <span class="navBrand"> Reazon Gd </span>
+  <body class="font-mono p-4 max-w-4xl mx-auto border-gray-500">
+    <div class="">
+      <!-- nav start -->
+      <nav class="flex justify-between items-center">
+        <span class="text-bold"> Reazond </span>
+        <div class="flex-gap-2 items-center">
+          <a href="">About</a>
+          <a href="">Projects</a>
+          <a href="">Contact</a>
+        </div>
       </nav>
-    </section>
+      <!-- nav ends -->
 
-    <!-- Hero -->
-    <section id="hero" class="Hero" data-aos="fade-up">
-      <div class="container hero">
-        <!-- About Me -->
-        <div class="about">
-          <span class="title"> About Me </span>
-          <p class="about">
-            &ensp; belum jadi, rencana pengen ganti. tapi, nunggu ada ide
+      <section class="flex md:items-center max-md:flex-col mt-20 gap-10">
+        <img
+          src="asset/profile.jpg"
+          alt=""
+          class="size-50 object-contain max-md:mx-auto"
+        />
+        <div>
+          <p class="text-2xl font-bold">Hi, I am Khafid Rosidi</p>
+          <b>About Me</b>
+          <p>
+            I am an active student at Muria Kudus University majoring in System
+            Information, focus at analysis and development system. my best is on
+            web development using modern frameworks such as React and Next.js. I
+            also explore embedded systems with ESP32 and Arduino as side
+            projects.
           </p>
-          <div class="little-spaces"></div>
         </div>
-        <div class="profil"></div>
-      </div>
-    </section>
+      </section>
 
-    <div class="space"></div>
+      <section class="flex justify-center flex-col my-10">
+        <div class="max-w-sm">
+          <p class="font-bold">
+            <span class="text-blue-500">self</span>.project
+          </p>
+          <p>Some of my best project</p>
+        </div>
+        <div
+          class="grid grid-cols-3 gap-4 mt-3 max-md:grid-cols-2 max-sm:grid-cols-1"
+        >
+          <div class="border-2 border-gray-500">
+            <div
+              class="h-auto bg-center bg-cover aspect-video"
+              style="
+                background-image: url(&quot;https://raw.githubusercontent.com/ReazonGd/LRC-MAKER/main/asset-image/og-lrc_maker.jpg&quot;);
+              "
+            ></div>
+            <div class="p-2">
+              <b>LRC Maker</b>
+              <p>Editor lrc file Website</p>
+              <a
+                href="https://lrcmaker.vercel.app/"
+                class="text-gray-400 text-sm hover:text-orange-400"
+                >[link]</a
+              >
+            </div>
+          </div>
+          <div class="border-2 border-gray-500">
+            <div
+              class="h-auto bg-center bg-cover aspect-video"
+              style="
+                background-image: url(&quot;https://raw.githubusercontent.com/ReazonGd/luru/main/aset/demo.gif&quot;);
+              "
+            ></div>
+            <div class="p-2">
+              <b>luru</b>
+              <p>File explorer CLI</p>
+              <a
+                href="https://github.com/ReazonGd/luru"
+                class="text-gray-400 text-sm hover:text-orange-400"
+                >[link]</a
+              >
+            </div>
+          </div>
+          <div class="border-2 border-gray-500">
+            <div
+              class="h-auto bg-center bg-cover aspect-video"
+              style="background-image: url(&quot;asset/no-image.png&quot;)"
+            ></div>
+            <div class="p-2">
+              <b>UMK+</b>
+              <p>Chrome extension to make UMK websites better</p>
+              <a
+                href="https://github.com/ReazonGd/umk-plus"
+                class="text-gray-400 text-sm hover:text-orange-400"
+                >[link]</a
+              >
+            </div>
+          </div>
+          <div class="border-2 border-gray-500">
+            <div
+              class="h-auto bg-center bg-cover aspect-video"
+              style="background-image: url(&quot;asset/no-image.png&quot;)"
+            ></div>
+            <div class="p-2">
+              <b>Altablogs</b>
+              <p>Simple blogs using Nextjs</p>
+              <a
+                href="https://altablogs.vercel.app/"
+                class="text-gray-400 text-sm hover:text-orange-400"
+                >[link]</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p class="font-bold">
+            <span class="text-blue-500">self</span>.education
+            <span class="text-red-500">&amp;&amp;</span>
+            <span class="text-blue-500">self</span>.experience
+          </p>
+          <p>i am colage student, and there moore info</p>
+          <pre
+            class="my-4"
+          >┆  <span class="text-gray-300 italic">// .. no comment.</span>
+├╴ <span class="text-gray-500">[2021-2024]</span> SMK N1 Kalinyamatan
+│  <span class="text-yellow-500">Electricity Industry</span>
+└┬ <span class="text-gray-500">[2024-Current]</span> Universitas Muria Kudus
+ │ <span class="text-blue-500">Sistem Informasi</span>
+ └ <span class="text-gray-500">[2024-Current]</span> UKMF <span class="text-blue-500">MC</span><span class="text-cyan-500">C</span>
+   <span class="text-blue-500">Defisi Research &amp; Development</span>
+    </pre>
+        </div>
+      </section>
 
-    <!-- galery -->
-    <section id="galery" data-aos="fade-up" data-aos-delay="100">
-      <div class="container">
-        <span class="gal title"> My Galery</span>
-        <span class="info">See more...</span>
-        <div class="galery">
-          <div data-aos="fade-right" data-aos-delay="300" class="card" style="background-image: url(./src/photo_2022-06-22_17-01-31.jpg)">
-            <a href="./src/photo_2022-06-22_17-01-31.jpg"><i class="bi bi-arrow-up-right-square-fill"></i></a>
+      <section class="flex justify-center flex-col my-10">
+        <div class="max-w-sm">
+          <b>So, what can i do?</b>
+          <p>I'm best at making website. there are my techstack!</p>
+        </div>
+        <div class="flex flex-wrap gap-2 my-2">
+          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
+            <img src="asset/icons/react.svg" alt="icon" class="h-4" />
+            <p>JSX</p>
           </div>
-          <div data-aos="fade-left" data-aos-delay="300" class="card" style="background-image: url(./src/photo_2022-06-22_17-01-33.jpg)">
-            <a href="./src/photo_2022-06-22_17-01-33.jpg"><i class="bi bi-arrow-up-right-square-fill"></i></a>
+
+          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
+            <img src="asset/icons/typescript.svg" alt="icon" class="h-4" />
+            <p>Typescript</p>
           </div>
-          <div data-aos="fade-right" data-aos-delay="300" class="card" style="background-image: url(./src/photo_2022-06-22_17-01-28.jpg)">
-            <a href="./src/photo_2022-06-22_17-01-28.jpg"><i class="bi bi-arrow-up-right-square-fill"></i></a>
+
+          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
+            <img src="asset/icons/express.svg" alt="icon" class="h-4" />
+            <p>Express</p>
           </div>
-          <div data-aos="fade-left" data-aos-delay="300" class="card" style="background-image: url(./src/photo_2022-06-22_17-01-29.jpg)">
-            <a href="(./src/photo_2022-06-22_17-01-29.jpg"><i class="bi bi-arrow-up-right-square-fill"></i></a>
+
+          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
+            <img src="asset/icons/nestjs.svg" alt="icon" class="h-4" />
+            <p>Nestjs</p>
+          </div>
+
+          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
+            <img src="asset/icons/mysql.svg" alt="icon" class="h-4" />
+            <p>mysql</p>
+          </div>
+
+          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
+            <img src="asset/icons/figma.svg" alt="icon" class="h-4" />
+            <p>Figma</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="my-10">
+        <b>Whats next?</b>
+        <div class="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
+          <div class="p-3">
+            <p>Send a mail</p>
+            <div class="text-gray-500">
+              <a
+                href="mailto:khafidrosidi@gmail.com"
+                class="hover:text-orange-400"
+                >khafidrosidi@gmail.com</a
+              >
+            </div>
+          </div>
+          <div class="p-3">
+            <p>See Github profile</p>
+            <div class="text-gray-500">
+              <a
+                href="https://github.com/ReazonGd"
+                class="hover:text-orange-400"
+                >ReazonGd</a
+              >
+            </div>
+          </div>
+          <div class="p-3">
+            <p>i'do like to chat</p>
+            <div class="text-gray-500">wa: +62xxxxxx</div>
+          </div>
+          <div class="p-3">
+            <p>see my photo skills</p>
+            <div class="text-gray-500">ig: rzeable</div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- contact -->
-    <section id="contact" data-aos="fade-up">
-      <div class="container">
-        <span class="title">Contact me</span>
-        <form method="post" id="contact-form" action="https://comet-cuddly-tire.glitch.me/add">
-          <span class="info" id="form-info">SENDED</span>
-          <div class="groub">
-            <input type="text" name="name" placeholder="Name" minlength="5" s required />
-            <i class="bi-person"></i>
-          </div>
-          <div class="groub">
-            <input type="email" name="email" placeholder="Email" required />
-            <i class="bi-envelope"></i>
-          </div>
-          <div class="groub">
-            <textarea placeholder="Message" name="message" rows="5" minlength="10" required></textarea>
-            <i class="bi-chat-left"></i>
-          </div>
-          <button type="submit" id="contactSend">Send</button>
-        </form>
-      </div>
-    </section>
-
-    <div class="space"></div>
-    <section id="footer">
-      <footer class="container">ups</footer>
-    </section>
-
-    <!-- btn -->
-    <div class="sub-nav">
-      <div class="option">
-        <a href="#hero">
-          <i class="bi-house"></i>
-        </a>
-        <a href="#galery">
-          <i class="bi-columns-gap"></i>
-        </a>
-        <a href="#contact">
-          <i class="bi-person"></i>
-        </a>
-        <a href="#">
-          <i class="bi-arrow-up"></i>
-        </a>
-      </div>
-      <i class="bi-caret-left"></i>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-      AOS.init();
-      document.getElementById("form-info").style.opacity = 0;
-
-//       let formDone = false;
-//       var form = document.getElementById("contact-form");
-//       form.addEventListener("submit", (e) => {
-//         e.preventDefault();
-//         if (formDone) return;
-//         fetch("https://comet-cuddly-tire.glitch.me/add", {
-//           method: "POST",
-//           mode: 'no-cors',
-//           body: new FormData(document.getElementById("contact-form")),
-//         })
-//           .then((response) => response.html())
-//           .then(() => {
-//             document.getElementById("form-info").innerHTML = "Success! ヾ(•ω•`)o";
-//             document.getElementById("form-info").style.opacity = 1;
-//             formDone = true;
-//           })
-//           .catch((e) => {
-//             document.getElementById("form-info").innerHTML = "Error. /_ \\";
-//             document.getElementById("form-info").style.opacity = 1;
-//           });
-//       });
-    </script>
   </body>
 </html>
