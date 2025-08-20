@@ -10,11 +10,11 @@
     <div class="">
       <!-- nav start -->
       <nav class="flex justify-between items-center">
-        <span class="text-bold"> Reazond </span>
+        <span class="text-bold"> ReazonGd </span>
         <div class="flex-gap-2 items-center">
-          <a href="">About</a>
-          <a href="">Projects</a>
-          <a href="">Contact</a>
+          <a href="#project">Projects</a>
+          <a href="#skills">Skill</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
       <!-- nav ends -->
@@ -23,10 +23,13 @@
         <img
           src="asset/profile.jpg"
           alt=""
-          class="size-50 object-contain max-md:mx-auto"
+          class="size-56 object-contain max-md:mx-auto"
         />
         <div>
           <p class="text-2xl font-bold">Hi, I am Khafid Rosidi</p>
+          <p class="text-sm text-gray-500 mb-2">
+            <span class="text-blue-500">alias</span> Reazon, Rzeable
+          </p>
           <b>About Me</b>
           <p>
             I am an active student at Muria Kudus University majoring in System
@@ -38,7 +41,7 @@
         </div>
       </section>
 
-      <section class="flex justify-center flex-col my-10">
+      <section id="project" class="flex justify-center flex-col my-10">
         <div class="max-w-sm">
           <p class="font-bold">
             <span class="text-blue-500">self</span>.project
@@ -133,65 +136,93 @@
         </div>
       </section>
 
-      <section class="flex justify-center flex-col my-10">
+      <section id="skills" class="flex justify-center flex-col my-10">
         <div class="max-w-sm">
           <b>So, what can i do?</b>
           <p>I'm best at making website. there are my techstack!</p>
         </div>
         <div class="flex flex-wrap gap-2 my-2">
-          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
-            <img src="asset/icons/react.svg" alt="icon" class="h-4" />
+          <div
+            class="p-2 border-2 border-gray-500 flex gap-2 items-center hover:bg-blue-400 transition-colors duration-300"
+          >
+            <img src="asset/icons/react.svg" alt="icon" class="h-4 w-auto" />
             <p>JSX</p>
           </div>
 
-          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
-            <img src="asset/icons/typescript.svg" alt="icon" class="h-4" />
+          <div
+            class="p-2 border-2 border-gray-500 flex gap-2 items-center hover:bg-blue-400 transition-colors duration-300"
+          >
+            <img src="asset/icons/nextjs.svg" alt="icon" class="h-4 w-auto" />
+            <p>Nextjs</p>
+          </div>
+
+          <div
+            class="p-2 border-2 border-gray-500 flex gap-2 items-center hover:bg-blue-400 transition-colors duration-300"
+          >
+            <img
+              src="asset/icons/tailwindcss.svg"
+              alt="icon"
+              class="h-4 w-auto"
+            />
+            <p>Tailwindcss</p>
+          </div>
+
+          <div
+            class="p-2 border-2 border-gray-500 flex gap-2 items-center hover:bg-blue-400 transition-colors duration-300"
+          >
+            <img
+              src="asset/icons/typescript.svg"
+              alt="icon"
+              class="h-4 w-auto"
+            />
             <p>Typescript</p>
           </div>
 
-          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
-            <img src="asset/icons/express.svg" alt="icon" class="h-4" />
+          <div
+            class="p-2 border-2 border-gray-500 flex gap-2 items-center hover:bg-blue-400 transition-colors duration-300"
+          >
+            <img src="asset/icons/express.svg" alt="icon" class="h-4 w-auto" />
             <p>Express</p>
           </div>
 
-          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
-            <img src="asset/icons/nestjs.svg" alt="icon" class="h-4" />
+          <div
+            class="p-2 border-2 border-gray-500 flex gap-2 items-center hover:bg-blue-400 transition-colors duration-300"
+          >
+            <img src="asset/icons/nestjs.svg" alt="icon" class="h-4 w-auto" />
             <p>Nestjs</p>
           </div>
 
-          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
-            <img src="asset/icons/mysql.svg" alt="icon" class="h-4" />
+          <div
+            class="p-2 border-2 border-gray-500 flex gap-2 items-center hover:bg-blue-400 transition-colors duration-300"
+          >
+            <img src="asset/icons/mysql.svg" alt="icon" class="h-4 w-auto" />
             <p>mysql</p>
           </div>
 
-          <div class="p-2 border-2 border-gray-500 flex gap-2 items-center">
-            <img src="asset/icons/figma.svg" alt="icon" class="h-4" />
+          <div
+            class="p-2 border-2 border-gray-500 flex gap-2 items-center hover:bg-blue-400 transition-colors duration-300"
+          >
+            <img src="asset/icons/figma.svg" alt="icon" class="h-4 w-auto" />
             <p>Figma</p>
           </div>
         </div>
       </section>
 
-      <div class="my-10">
+      <div id="contact" class="my-10">
         <b>Whats next?</b>
         <div class="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
           <div class="p-3">
             <p>Send a mail</p>
             <div class="text-gray-500">
-              <a
-                href="mailto:khafidrosidi@gmail.com"
-                class="hover:text-orange-400"
-                >khafidrosidi@gmail.com</a
+              <a href="mailto:khafidrosidi093@gmail.com"
+                >khafidrosidi093@gmail.com</a
               >
             </div>
           </div>
           <div class="p-3">
             <p>See Github profile</p>
             <div class="text-gray-500">
-              <a
-                href="https://github.com/ReazonGd"
-                class="hover:text-orange-400"
-                >ReazonGd</a
-              >
+              <a href="https://github.com/ReazonGd">ReazonGd</a>
             </div>
           </div>
           <div class="p-3">
@@ -199,8 +230,11 @@
             <div class="text-gray-500">wa: +62xxxxxx</div>
           </div>
           <div class="p-3">
-            <p>see my photo skills</p>
-            <div class="text-gray-500">ig: rzeable</div>
+            <p>Lets share stories</p>
+            <div class="text-gray-500">
+              ig:
+              <a href="https://www.instagram.com/rzeable/#">rzeable</a>
+            </div>
           </div>
         </div>
       </div>
