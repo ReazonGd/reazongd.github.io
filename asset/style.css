@@ -432,6 +432,7 @@
   }
   #contact a {
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
     background-image: linear-gradient( 47deg, #555, #eee, #555, #555, #555, #555, #555, #555 );
     background-size: 200% auto;
